@@ -1,0 +1,28 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$('input[value=Save]').click(function ()  
+    {  
+        PreSaveAction();
+    });  
+function PreSaveAction() {
+    var customerName = $('input[title="Customer Name"]').val();
+    var customerEmailID = $('input[title="Customer Email Address"]').val();
+    const emailPattern =  new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    var validMail = emailPattern.test(customerEmailID);
+    if(customerName != "" && (customerName.match(/^[a-zA-Z]+$/)) && (customerName.length >= 2 && customerName.length <= 65)){
+if(validMail === true){
+  alert("Customer Added successfully.");
+  return true;
+}
+        else{
+           alert("Please enter the valid Customer Email Address.");
+           return false;
+        }
+    }
+    else{
+        alert("Please enter a valid Customer Name.");
+        return false;
+    }
+}
+</script>
+

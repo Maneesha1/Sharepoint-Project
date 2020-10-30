@@ -1,0 +1,40 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$('input[value=Save]').click(function ()  
+    {  
+        PreSaveAction();
+    });  
+function PreSaveAction() {
+    var productName = $('input[title="Product Name"]').val();
+    var lengthOfName = productName.length
+    var unitPrice = $('input[title="Product Unit Price"]').val();
+    var expiryDate = $('input[title="Product Expiry Date"]').val();
+    var productType = $('select[title="Product Type"] option:selected').val();
+    if(productName != "" && (productName.match(/^[a-zA-Z]+$/)) &&  isNaN(productName) && (lengthOfName >= 2 && lengthOfName<=65) ){
+        if(!isNaN(unitPrice) && unitPrice !=""){
+            if(expiryDate != ""){
+                if(productType != ""){
+  alert("Details saved successfully");
+        return true;
+}
+                else{
+                   alert("Please select a Product Type");
+                   return false;
+                }
+            }
+   else{
+      alert("Please select a date.");
+      return false;
+   }
+        }
+        else{
+ alert("Price is invalid.");
+ return false;
+}
+    }
+    else{
+      alert("Name is invalid.");
+      return false;
+    }
+}
+</script>
